@@ -14,28 +14,38 @@
 <body>
     <h1 class="text-4xl font-semibold text-center h-18 py-3 text-white bg-blue-950">Rock Paper Scissors</h1>
     <section class="flex justify-center gap-7 lg:gap-10 mt-14">
-        <div id="rock" class="choice hover:bg-blue-950 p-2 rounded-full cursor-pointer">
+        <div id="rock" class="choice hover:bg-blue-950 p-2 rounded-full cursor-pointer transition-all duration-300">
             <img class="h-24 w-24 lg:h-40 lg:w-40 object-cover rounded-full" src="images/rock.png" alt="">
         </div>
-        <div id="paper" class="choice hover:bg-blue-950 p-2 rounded-full cursor-pointer">
+        <div id="paper" class="choice hover:bg-blue-950 p-2 rounded-full cursor-pointer transition-all duration-300">
             <img class="h-24 w-24 lg:h-40 lg:w-40 object-cover rounded-full" src="images/paper.png" alt="">
         </div>
-        <div id="scissors" class="choice hover:bg-blue-950 p-2 rounded-full cursor-pointer">
+        <div id="scissors" class="choice hover:bg-blue-950 p-2 rounded-full cursor-pointer transition-all duration-300">
             <img class="h-24 w-24 lg:h-40 lg:w-40 object-cover rounded-full" src="images/scissors.png" alt="">
         </div>
     </section>
     <!-- score section -->
-     <section class="flex text-center justify-center mt-20 gap-18">
-        <div>
-            <p class="text-4xl lg:text-5xl font-bold" id="user-score">0</p>
-            <p class="text-2xl font-semibold">You</p>
+     
+        <section class="flex justify-center items-center gap-16 my-10">
+        <!-- User Score -->
+        <div class="bg-white shadow-xl rounded-lg p-6 w-32 text-center">
+            <p class="text-sm font-semibold text-gray-500 mb-1">You</p>
+            <p id="user-score" class="text-5xl font-extrabold text-[#1e2a5a]">0</p>
         </div>
-        <div>
-            <p class="text-4xl lg:text-5xl font-bold" id="computer-score">0</p>
-            <p class="text-2xl font-semibold">Computer</p>
+
+        <!-- VS Divider -->
+        <div class="text-2xl font-semibold text-gray-400">vs</div>
+
+        <!-- Computer Score -->
+        <div class="bg-white shadow-xl rounded-lg p-6 w-32 text-center">
+            <p class="text-sm font-semibold text-gray-500 mb-1">Computer</p>
+            <p id="computer-score" class="text-5xl font-extrabold text-[#1e2a5a]">0</p>
         </div>
-     </section>
+
+        </section>
+
      <!-- result section -->
+
       <div class="text-center mt-18">
         <p id="result" class="opacity 0.5s ease-in text-xl lg:text-2xl font-semibold bg-blue-950 inline p-3 rounded-sm text-white">Play your move</p>
     </div>
