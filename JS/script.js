@@ -3,8 +3,9 @@ let computerScore = 0;
 
 const choices = document.querySelectorAll('.choice');
 const showResult = document.querySelector('#result');
-const userScoreEl = document.querySelector('#user-score')
-const computerScoreEl = document.querySelector('#computer-score')
+const userScoreEl = document.querySelector('#user-score');
+const computerScoreEl = document.querySelector('#computer-score');
+const resetBtn = document.querySelector('#reset-btn');
 
 choices.forEach(choice =>{
     choice.addEventListener('click', () =>{
@@ -36,6 +37,8 @@ const playGame = (userChoice) =>{
      }
 };
 
+// Computer generate section
+
 const computerGenChoice = () =>{
     const options = ['rock', 'paper', 'scissors'];
     const randomIdx = Math.floor(Math.random() * 3);
@@ -63,6 +66,19 @@ const showWinner = (userWin, userChoice, computerChoice) =>{
         showResult.style.backgroundColor = 'red'
         computerScore++
         computerScoreEl.innerText = computerScore;
-    }
+    };
+   
 };
+
+// Reset game section
+
+const resetGame = () =>{
+    userScoreEl.innerText = 0;
+    computerScoreEl.innerText = 0;
+    showResult.style.backgroundColor = ''
+    showResult.innerText = 'Play your move' ;
+    showResult.style.backgroundColor = 'bg-blue-950'
+};
+
+resetBtn.addEventListener('click', resetGame);
 
