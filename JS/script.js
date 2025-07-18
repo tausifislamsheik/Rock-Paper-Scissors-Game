@@ -72,13 +72,38 @@ const showWinner = (userWin, userChoice, computerChoice) =>{
 
 // Reset game section
 
-const resetGame = () =>{
-    userScoreEl.innerText = 0;
-    computerScoreEl.innerText = 0;
-    showResult.style.backgroundColor = ''
-    showResult.innerText = 'Play your move' ;
-    showResult.style.backgroundColor = 'bg-blue-950'
+const resetGame = () => {
+    // Animate score reset
+    animateScoreReset(userScoreEl, userScore);
+    animateScoreReset(computerScoreEl, computerScore);
+    userScore = 0;
+    computerScore = 0;
+
+    // Fade in result message
+    showResult.style.opacity = 0; // Start hidden
+    showResult.innerText = 'Play your move';
+    showResult.style.backgroundColor = '#1e2a5a';
+    
+    setTimeout(() => {
+        showResult.style.transition = 'opacity 0.5s ease-in';
+        showResult.style.opacity = 1;
+    }, 100);
 };
+
+
+const animateScoreReset = (element, score) => {
+    let current = score;
+    const interval = setInterval(() => {
+        if (current <= 0) {
+            clearInterval(interval);
+            element.innerText = 0;
+        } else {
+            current--;
+            element.innerText = current;
+        }
+    }, 50); // Speed of the countdown (smaller = faster)
+};
+
 
 resetBtn.addEventListener('click', resetGame);
 
