@@ -2,7 +2,9 @@ let userScore = 0;
 let computerScore = 0;
 
 const choices = document.querySelectorAll('.choice');
-const showResult = document.querySelector('#result')
+const showResult = document.querySelector('#result');
+const userScoreEl = document.querySelector('#user-score')
+const computerScoreEl = document.querySelector('#computer-score')
 
 choices.forEach(choice =>{
     choice.addEventListener('click', () =>{
@@ -30,6 +32,7 @@ const playGame = (userChoice) =>{
         }
 
         showWinner(userWin, userChoice, computerChoice);
+        
      }
 };
 
@@ -52,9 +55,14 @@ const gameDraw = () =>{
 const showWinner = (userWin, userChoice, computerChoice) =>{
     if(userWin){
         showResult.innerText = `You Win! ${userChoice} beats ${computerChoice}`
-        showResult.style.backgroundColor = 'green'
+        showResult.style.backgroundColor = 'green';
+        userScore++
+        userScoreEl.innerText = userScore;
     }else{
         showResult.innerText = `You lose. ${computerChoice} beats ${userChoice}`
         showResult.style.backgroundColor = 'red'
+        computerScore++
+        computerScoreEl.innerText = computerScore;
     }
-}
+};
+
